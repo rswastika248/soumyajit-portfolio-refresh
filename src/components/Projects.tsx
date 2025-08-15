@@ -69,7 +69,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-background relative overflow-hidden">
+    <section id="projects" className="h-screen flex items-center bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--primary)_0%,_transparent_50%)] opacity-5"></div>
       
