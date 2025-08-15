@@ -20,16 +20,33 @@ const About = () => {
             {/* Profile Image */}
             <AnimatedSection delay={0.2}>
               <div className="flex justify-center lg:justify-start">
-                <div className="relative">
-                  <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <div className="relative group">
+                  <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-3xl">
                     <img 
                       src={profileImage} 
                       alt="Soumyajit Banerjee - Software Developer"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110"
                     />
+                    {/* Overlay effect on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Glowing border effect */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-primary/0 group-hover:border-primary/50 transition-all duration-500"></div>
                   </div>
-                  <div className="absolute -bottom-4 -right-4 w-24 h-24 hero-gradient rounded-full opacity-20 blur-xl"></div>
-                  <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/20 rounded-full blur-lg"></div>
+                  
+                  {/* Animated background elements */}
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 hero-gradient rounded-full opacity-20 blur-xl group-hover:opacity-40 group-hover:scale-125 transition-all duration-500"></div>
+                  <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/20 rounded-full blur-lg group-hover:bg-primary/40 group-hover:scale-150 transition-all duration-500"></div>
+                  
+                  {/* Floating particles effect */}
+                  <div className="absolute top-10 right-10 w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-500" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="absolute bottom-16 left-8 w-1.5 h-1.5 bg-primary/70 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-500" style={{ animationDelay: '0.3s' }}></div>
+                  <div className="absolute top-20 left-12 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-500" style={{ animationDelay: '0.5s' }}></div>
+                  
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
