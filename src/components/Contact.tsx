@@ -2,7 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, CheckCircle, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
 
 const Contact = () => {
@@ -12,11 +13,35 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error'>('success');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xanbkkdy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setShowDialog(true);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -158,11 +183,12 @@ const Contact = () => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full hero-gradient text-white hover:scale-105 transition-transform duration-200"
+                    disabled={isSubmitting}
+                    className="w-full hero-gradient text-white hover:scale-105 transition-transform duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     size="lg"
                   >
                     <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
@@ -170,6 +196,38 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Success/Error Dialog */}
+      <Dialog open={showDialog} onOpenChange={setShowDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-3">
+              {submitStatus === 'success' ? (
+                <>
+                  <CheckCircle className="h-6 w-6 text-green-500" />
+                  Message Sent Successfully!
+                </>
+              ) : (
+                <>
+                  <AlertCircle className="h-6 w-6 text-red-500" />
+                  Failed to Send Message
+                </>
+              )}
+            </DialogTitle>
+            <DialogDescription className="pt-2">
+              {submitStatus === 'success' 
+                ? "Thank you for reaching out! I'll get back to you as soon as possible."
+                : "Sorry, there was an error sending your message. Please try again or contact me directly via email."
+              }
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button onClick={() => setShowDialog(false)} className="w-full">
+              Close
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
