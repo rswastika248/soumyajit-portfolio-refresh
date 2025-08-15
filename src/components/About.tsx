@@ -1,4 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Code, Database, Smartphone, Globe, Award, Coffee } from 'lucide-react';
 import profileImage from '@/assets/profile-image.jpg';
 import AnimatedSection from '@/components/AnimatedSection';
 
@@ -53,41 +55,112 @@ const About = () => {
             
             {/* About Content */}
             <AnimatedSection delay={0.4}>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-4 text-primary">Software Developer</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="text-3xl font-bold text-primary">Software Developer</h3>
+                    <Badge variant="secondary" className="bg-primary/10 text-primary">
+                      Available for Projects
+                    </Badge>
+                  </div>
+                  
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    I'm a passionate Software Developer currently working at <strong>Chetu, Inc.</strong> with over 
+                    I'm a passionate Software Developer currently working at <strong className="text-foreground">Chetu, Inc.</strong> with over 
                     6 years of experience in building robust, scalable applications. My journey in technology 
                     started with a curiosity about how things work behind the scenes, which led me to pursue 
                     software development.
                   </p>
                   
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    Based in Hyderabad, I specialize in full-stack development and have a strong background 
+                    Based in <strong className="text-foreground">Hyderabad</strong>, I specialize in full-stack development and have a strong background 
                     in modern web technologies. I believe in writing clean, maintainable code and staying 
                     updated with the latest industry trends and best practices.
                   </p>
                   
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                     When I'm not coding, you'll find me exploring new technologies, contributing to open source 
                     projects, or sharing knowledge with the developer community. I'm always eager to take on 
                     new challenges and collaborate on exciting projects.
                   </p>
                 </div>
+
+                {/* Specializations */}
+                <div className="space-y-4">
+                  <h4 className="text-xl font-semibold text-foreground">What I Do Best</h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center gap-3 p-4 rounded-lg bg-card/50 border hover:border-primary/30 transition-colors duration-200">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Code className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-foreground">Full-Stack Development</div>
+                        <div className="text-sm text-muted-foreground">End-to-end solutions</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-4 rounded-lg bg-card/50 border hover:border-primary/30 transition-colors duration-200">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Globe className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-foreground">Web Applications</div>
+                        <div className="text-sm text-muted-foreground">Modern & responsive</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-4 rounded-lg bg-card/50 border hover:border-primary/30 transition-colors duration-200">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Database className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-foreground">Database Design</div>
+                        <div className="text-sm text-muted-foreground">Scalable architecture</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-4 rounded-lg bg-card/50 border hover:border-primary/30 transition-colors duration-200">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Smartphone className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-foreground">Mobile-First Design</div>
+                        <div className="text-sm text-muted-foreground">Cross-platform apps</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 
-                <div className="grid grid-cols-2 gap-4 mt-8">
-                  <Card className="card-elegant">
+                {/* Stats Cards */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <Card className="card-elegant group hover:scale-105 transition-transform duration-200">
                     <CardContent className="p-6 text-center">
+                      <Award className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-200" />
                       <div className="text-3xl font-bold text-primary mb-2">6+</div>
                       <div className="text-sm text-muted-foreground">Years Experience</div>
                     </CardContent>
                   </Card>
                   
-                  <Card className="card-elegant">
+                  <Card className="card-elegant group hover:scale-105 transition-transform duration-200">
                     <CardContent className="p-6 text-center">
+                      <Code className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-200" />
                       <div className="text-3xl font-bold text-primary mb-2">50+</div>
-                      <div className="text-sm text-muted-foreground">Projects Completed</div>
+                      <div className="text-sm text-muted-foreground">Projects Done</div>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="card-elegant group hover:scale-105 transition-transform duration-200">
+                    <CardContent className="p-6 text-center">
+                      <Globe className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-200" />
+                      <div className="text-3xl font-bold text-primary mb-2">15+</div>
+                      <div className="text-sm text-muted-foreground">Technologies</div>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="card-elegant group hover:scale-105 transition-transform duration-200">
+                    <CardContent className="p-6 text-center">
+                      <Coffee className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-200" />
+                      <div className="text-3xl font-bold text-primary mb-2">∞</div>
+                      <div className="text-sm text-muted-foreground">Coffee Cups</div>
                     </CardContent>
                   </Card>
                 </div>
