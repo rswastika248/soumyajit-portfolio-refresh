@@ -38,7 +38,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="h-screen flex items-center bg-secondary/30">
+    <section id="experience" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="text-center mb-16">
