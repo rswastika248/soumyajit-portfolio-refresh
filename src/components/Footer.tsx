@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-4">
-              Soumyajit Banerjee
+              Swastika Roy
             </h3>
             <p className="text-muted-foreground leading-relaxed">
               Software Developer passionate about creating innovative solutions 
@@ -76,7 +76,7 @@ const Footer = () => {
         
         <div className="border-t mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Soumyajit Banerjee. All rights reserved.
+            © {currentYear} Swastika Roy. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Made with <Heart className="h-4 w-4 text-red-500" fill="currentColor" /> using React & TypeScript

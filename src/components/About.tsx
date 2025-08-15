@@ -24,7 +24,7 @@ const About = () => {
                   <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-3xl">
                     <img 
                       src={profileImage} 
-                      alt="Soumyajit Banerjee - Software Developer"
+                      alt="Swastika Roy - Software Developer"
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110"
                     />
                     {/* Overlay effect on hover */}

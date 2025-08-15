@@ -25,7 +25,7 @@ const Hero = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="block text-foreground">Hi, I'm</span>
               <span className="block bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                Soumyajit Banerjee
+                Swastika Roy
               </span>
             </h1>
           </AnimatedSection>
