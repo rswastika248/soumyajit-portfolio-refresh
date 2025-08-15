@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import TypingEffect from '@/components/TypingEffect';
 
 const Hero = () => {
   const scrollToSection = (href: string) => {
@@ -30,10 +31,9 @@ const Hero = () => {
           </AnimatedSection>
           
           <AnimatedSection delay={0.2}>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Software Developer at <span className="text-primary font-semibold">Chetu, Inc.</span> | 
-              Building innovative solutions with modern technologies
-            </p>
+            <div className="mb-8 max-w-2xl mx-auto h-16 flex items-center justify-center">
+              <TypingEffect />
+            </div>
           </AnimatedSection>
           
           <AnimatedSection delay={0.4}>
